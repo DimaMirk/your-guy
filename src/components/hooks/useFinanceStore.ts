@@ -3,7 +3,7 @@ import {
   calculateDailyLimit,
   calculateTodayTotal,
   getDaysLeftInMonth,
-} from "@/lib/utils";
+} from "@/lib/financeUtils";
 import {
   loadFinanceData,
   saveFinanceData,
@@ -20,14 +20,12 @@ export function useFinanceStore() {
   const [monthBalance, setMonthBalance] = useState(0);
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
-  // load on mount
   useEffect(() => {
     const data = loadFinanceData();
     setMonthBalance(data.monthBalance);
     setExpenses(data.expenses);
   }, []);
 
-  // persist
   useEffect(() => {
     saveFinanceData({ monthBalance, expenses });
   }, [monthBalance, expenses]);
