@@ -3,7 +3,7 @@ import {
   calculateDailyLimit,
   calculateTodayTotal,
   getDaysLeftInMonth,
-} from "@/lib/financeUtils";
+} from "@/lib/finance-calculations";
 import {
   loadFinanceData,
   saveFinanceData,
