@@ -3,7 +3,6 @@ import { useFinanceStore } from "@/hooks/useFinanceStore";
 
 export function TodayMonthBalance({ onEdit }) {
   const { monthBalance } = useFinanceStore();
-  console.log("Month Balance:", monthBalance);
 
   return (
     <section className="rounded-xl bg-muted p-4 flex items-center justify-between">
