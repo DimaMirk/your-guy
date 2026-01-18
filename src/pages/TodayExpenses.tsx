@@ -1,13 +1,13 @@
-import { useFinanceStore } from "@/hooks/useFinanceStore";
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useFinanceStore } from "@/hooks/useFinanceStore";
 
 export function TodayExpenses() {
-  const expenses = useFinanceStore((s) => s.todayExpenses);
-  const total = useFinanceStore((s) => s.todayTotal);
+  const { todayExpenses, todayTotal } = useFinanceStore();
 
   return (
     <section className="space-y-2">
@@ -16,7 +16,7 @@ export function TodayExpenses() {
           Витрати за сьогодні
         </p>
         <p className="text-sm text-red-600">
-          −{total} ₴
+          −{todayTotal} ₴
         </p>
       </div>
 
@@ -26,7 +26,7 @@ export function TodayExpenses() {
         </CollapsibleTrigger>
 
         <CollapsibleContent className="mt-2 space-y-2">
-          {expenses.map((e) => (
+          {todayExpenses.map((e) => (
             <div
               key={e.id}
               className="flex justify-between text-sm"

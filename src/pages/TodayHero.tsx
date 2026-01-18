@@ -1,7 +1,7 @@
 import { useFinanceStore } from "@/hooks/useFinanceStore";
 
 export function TodayHero() {
-  const dailyLimit = useFinanceStore((s) => s.dailyLimit);
+  const { dailyLimit } = useFinanceStore();
 
   return (
     <section className="rounded-2xl bg-white shadow-sm p-6 text-center space-y-2">
